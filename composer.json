@@ -1,0 +1,48 @@
+{
+    "name": "gyd/drupal-project",
+    "description": "Project template for Drupal 8 projects with composer",
+    "type": "project",
+    "require": {
+        "composer/installers": "^1.1",
+        "drupal/core": "^8.1"
+    },
+    "require-dev": {
+        "drupal-composer/drupal-scaffold": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "GyD",
+            "email": "GyD@github.com"
+        }
+    ],
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/contrib/{$name}": ["type:drupal-drush"]
+        },
+        "drupal-scaffold": {
+            "source": "http://cgit.drupalcode.org/drupal/plain/{path}?h={version}",
+            "excludes": [
+                ".csslintrc",
+                ".eslintignore",
+                ".eslintrc",
+                "web.config"
+            ],
+            "omit-defaults": false
+        }
+    },
+    "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+    }
+}
