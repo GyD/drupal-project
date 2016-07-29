@@ -4,7 +4,8 @@
     "type": "project",
     "require": {
         "composer/installers": "^1.1",
-        "drupal/core": "^8.1"
+        "drupal/core": "^8.1",
+        "drush/drush": "^8.1"
     },
     "require-dev": {
         "drupal-composer/drupal-scaffold": "^2.0"
@@ -43,6 +44,7 @@
         }
     },
     "scripts": {
-        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "drush": "drush --root='application'"
     }
 }
