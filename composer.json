@@ -3,12 +3,12 @@
     "description": "Project template for Drupal 8 projects with composer",
     "type": "project",
     "require": {
-        "composer/installers": "^1.1",
+        "composer/installers": "^1.2",
         "drupal/core": "^8.1",
         "drush/drush": "^8.1"
     },
     "require-dev": {
-        "drupal-composer/drupal-scaffold": "^2.0"
+        "drupal-composer/drupal-scaffold": "^2.2"
     },
     "authors": [
         {
@@ -24,16 +24,19 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "conflict": {
+        "drupal/drupal": "*"
+    },
     "extra": {
         "installer-paths": {
             "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/contrib/{$name}": ["type:drupal-drush"]
         },
         "drupal-scaffold": {
-            "source": "http://cgit.drupalcode.org/drupal/plain/{path}?h={version}",
             "excludes": [
                 ".csslintrc",
                 ".eslintignore",
@@ -44,7 +47,6 @@
         }
     },
     "scripts": {
-        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
-        "drush": "drush --root='application'"
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
     }
 }
